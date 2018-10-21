@@ -36,3 +36,7 @@ Things you may want to cover:
      ```
        http://localost:3000/questions
      ```
+  9. To run test cases.
+     ```
+       run rspec
+     ```
