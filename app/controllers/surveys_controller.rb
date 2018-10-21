@@ -27,7 +27,7 @@ class SurveysController < ApplicationController
 
 
   def create
-    @survey = Survey.new(survey_params)
+    @survey = Survey.new(survey_parameters)
 
     respond_to do |format|
       if @survey.save

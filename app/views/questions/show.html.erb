@@ -1,19 +1,19 @@
-<h1><%= @question.data %></h1>
+<h1><%= @question.content %></h1>
 <h6>List of Answers</h6>
 <ol class="answers">
-  <% @question.answers.each do |answer| %>
-      <li>
-        <%= answer.data %> <br>
-        <%= answer.user.email%>
-      </li>
+<% @question.answers.each do |answer| %>
+    <li>
+      <%= answer.data %> <br>
+      <%= answer.user.email%>
+    </li>
+<% end %>
+<h3> New Answer</h3>
+<div class="form-actions">
+  <%= form_for [@question, @question.answers.build] do |f| %>
+      <%= f.text_area :data, :size => '40*10' %>
+      <br>
+      <%= f.submit "Submit Answer", :class => 'btn btn-large btn-primary' %>
   <% end %>
-  <h3> New Answer</h3>
-  <div class="form-actions">
-    <%= form_for [@question, @question.answers.build] do |f| %>
-        <%= f.text_area :data, :size => '40*10' %>
-        <br>
-        <%= f.submit "Submit Answer", :class => 'btn btn-large btn-primary' %>
-    <% end %>
-  </div>
+</div>
 </ol>
 <%= link_to 'Back to Surveys', surveys_path, class: "btn btn-secondary" %>
