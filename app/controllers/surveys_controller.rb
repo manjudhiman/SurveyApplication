@@ -9,7 +9,7 @@ class SurveysController < ApplicationController
 
   def list
     @surveys = Survey.all
-    render json: {status: 'SUCCESS', message: 'Loaded all Surveys', data: @surveys}, status: :ok
+    render json: {status: 'SUCCESS', message: ' List of All Surveys', data: @surveys}, status: :ok
   end
 
 
@@ -31,7 +31,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to @survey, notice: 'Survey created!!.' }
+        format.html { redirect_to @survey, notice: 'Survey created!!' }
         format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new }
