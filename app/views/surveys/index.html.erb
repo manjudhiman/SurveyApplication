@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of Surveys</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= link_to survey.name, survey %></td>
+        <td><%= pluralize(survey.questions.size, "Question") %></td>
+        <td><%= link_to 'Edit', edit_survey_path(survey), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Delete', survey, :method => :delete, :confirm => "Are you sure?", class: "btn btn-danger"%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

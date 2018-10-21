@@ -1,0 +1,13 @@
+<h1><%= @survey.name %></h1>
+
+<ol class="questions">
+  <% @survey.questions.each do |question| %>
+      <li>
+        <%= question.data %> <%= link_to "View Details", question %>
+      </li>
+  <% end %>
+</ol>
+<% if current_user.role == "survey_admin"%>
+    <%= link_to 'Edit', edit_survey_path(@survey), class: "btn btn-primary"%>
+    <%= link_to 'Back to Surveys', surveys_path, class: "btn btn-secondary" %>
+<% end %>

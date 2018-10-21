@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand-lg">
+  <a class="navbar-brand" href="/">Survey Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My Account", edit_user_registration_path(current_user.id), class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Create Survey", new_survey_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: "nav-link" %>
+          </li>
+      <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

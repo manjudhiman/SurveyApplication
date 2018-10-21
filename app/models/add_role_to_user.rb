@@ -1,2 +1,0 @@
-class AddRoleToUser < ApplicationRecord
-end
