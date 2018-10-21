@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.build(question_params)
+    @question = @survey.questions.build(question_parameters)
     if @question.save
       render json: @survey, status: :created
     else
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   private
 
-  def question_params
-    params.require(:question).permit(:data)
+  def question_parameters
+    params.require(:question).permit(:text)
   end
 end

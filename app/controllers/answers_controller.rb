@@ -12,6 +12,6 @@ class AnswersController < ApplicationController
   private
 
   def answer_parameters
-    params.require(:answer).permit(:data, :user_id, :question_id)
+    params.require(:answer).permit(:text, :user_id, :question_id)
   end
 end

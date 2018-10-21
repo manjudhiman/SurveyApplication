@@ -3,7 +3,7 @@
 <ol class="questions">
   <% @survey.questions.each do |question| %>
       <li>
-        <%= question.data %> <%= link_to "View Details", question %>
+        <%= question.text %> <%= link_to "View Details", question %>
       </li>
   <% end %>
 </ol>

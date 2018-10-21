@@ -1,7 +1,6 @@
 class SurveysController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:list], raise: false
+  skip_before_action :authenticate_user, only: [:list], raise: false
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
-
 
   def index
     @surveys = Survey.all
@@ -12,19 +11,15 @@ class SurveysController < ApplicationController
     render json: {status: 'SUCCESS', message: ' List of All Surveys', data: @surveys}, status: :ok
   end
 
-
   def show
   end
-
 
   def new
     @survey = Survey.new
   end
 
-
   def edit
   end
-
 
   def create
     @survey = Survey.new(survey_parameters)
@@ -40,7 +35,6 @@ class SurveysController < ApplicationController
     end
   end
 
-
   def update
     respond_to do |format|
       if @survey.update(survey_parameters)
@@ -53,7 +47,6 @@ class SurveysController < ApplicationController
     end
   end
 
-
   def destroy
     @survey.destroy
     respond_to do |format|
@@ -62,15 +55,13 @@ class SurveysController < ApplicationController
     end
   end
 
-
   private
 
   def set_survey
     @survey = Survey.find(params[:id])
   end
 
-
   def survey_parameters
-    params.require(:survey).permit(:name, :questions_attributes =>  [:id, :data, :_destroy])
+    params.require(:survey).permit(:name, :questions_attributes =>  [:id, :text, :_destroy])
   end
 end
