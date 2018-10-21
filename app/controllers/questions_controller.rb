@@ -1,6 +1,12 @@
 class QuestionsController < ApplicationController
   skip_before_action :authenticate_user, only: [:create, :destroy], raise: false
 
+  def index
+    @question = Question.all
+
+    render json: @question
+  end
+
   def show
     @question = Question.find(params[:id])
   end
